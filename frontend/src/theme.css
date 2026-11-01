@@ -1,0 +1,381 @@
+/* ERP color tokens. Layout and component structure remain in styles.css. */
+:root {
+  --erp-sidebar: #0B1730;
+  --erp-sidebar-deep: #09142B;
+  --erp-sidebar-card: #182B4B;
+  --erp-sidebar-active: #315FF4;
+  --erp-sidebar-active-foreground: #FFFFFF;
+  --erp-sidebar-active-hover: #416EFF;
+  --erp-sidebar-text: #E6EEFF;
+  --erp-sidebar-muted: #B5C5E1;
+  --erp-sidebar-heading: #A1B6DB;
+  --erp-sidebar-border: #263856;
+  --erp-sidebar-icon: #C4D2EA;
+  --erp-background: #F4F7FF;
+  --erp-background-secondary: #EEF3FF;
+  --erp-background-elevated: #FAFCFF;
+  --erp-workspace-gradient: linear-gradient(135deg, #F8FAFF 0%, #F1F5FF 50%, #EDF3FF 100%);
+  --erp-header-background: #FFFFFF;
+  --erp-header-border: #E2E9F5;
+  --erp-header-text: #17233D;
+  --erp-header-muted: #7182A2;
+  --erp-header-icon: #24385E;
+  --erp-card-background: #FFFFFF;
+  --erp-card-border: #DFE7F5;
+  --erp-card-text: #17233D;
+  --erp-card-muted: #7484A2;
+  --erp-card-shadow: 0 2px 5px rgba(24, 47, 92, .035), 0 8px 24px rgba(24, 47, 92, .055);
+  --erp-card-hover-shadow: 0 6px 16px rgba(24, 47, 92, .06), 0 14px 32px rgba(24, 47, 92, .08);
+  --erp-primary: #315FF4;
+  --erp-primary-hover: #2452E8;
+  --erp-primary-active: #1C45CE;
+  --erp-primary-foreground: #FFFFFF;
+  --erp-revenue: #316BFF;
+  --erp-revenue-light: #E6EFFF;
+  --erp-sales: #22C76E;
+  --erp-sales-light: #E4F9EC;
+  --erp-expenses: #FF5878;
+  --erp-expenses-light: #FFF0F3;
+  --erp-warning: #F5A623;
+  --erp-warning-light: #FFF4DF;
+  --erp-table-header: #F0F4FB;
+  --erp-table-row: #FFFFFF;
+  --erp-table-row-hover: #F5F8FF;
+  --erp-table-border: #E6ECF5;
+  --erp-table-text: #23314D;
+  --erp-status-success-bg: #E3F8EA;
+  --erp-status-success-text: #16803D;
+  --erp-status-warning-bg: #FFF1D9;
+  --erp-status-warning-text: #B96B00;
+  --erp-status-error-bg: #FFE8ED;
+  --erp-status-error-text: #C92F4B;
+  --erp-status-info-bg: #E4EFFF;
+  --erp-status-info-text: #245BE0;
+  --erp-status-neutral-bg: #EDF1F7;
+  --erp-status-neutral-text: #66758F;
+  --erp-chart-blue: #316BFF;
+  --erp-chart-cyan: #20C7DC;
+  --erp-chart-green: #32C878;
+  --erp-chart-yellow: #FFC247;
+  --erp-chart-purple: #9470E8;
+  --erp-chart-red: #FF5878;
+  --erp-chart-grid: #E7EDF7;
+  --erp-input-background: #FFFFFF;
+  --erp-input-border: #DCE5F3;
+  --erp-input-text: #1B2944;
+  --erp-input-placeholder: #91A0B8;
+  --erp-input-focus: #416EFF;
+  --erp-input-focus-ring: rgba(65, 110, 255, .18);
+  --erp-surface-divider: #E6ECF5;
+  --background: var(--erp-background);
+  --foreground: var(--erp-card-text);
+  --card: var(--erp-card-background);
+  --card-foreground: var(--erp-card-text);
+  --popover: var(--erp-card-background);
+  --popover-foreground: var(--erp-card-text);
+  --primary: var(--erp-primary);
+  --primary-foreground: var(--erp-primary-foreground);
+  --secondary: var(--erp-background-secondary);
+  --secondary-foreground: var(--erp-card-text);
+  --muted: var(--erp-background-secondary);
+  --muted-foreground: var(--erp-card-muted);
+  --accent: var(--erp-background-secondary);
+  --accent-foreground: var(--erp-card-text);
+  --border: var(--erp-card-border);
+  --input: var(--erp-input-border);
+  --ring: var(--erp-input-focus);
+  --sidebar: var(--erp-sidebar);
+  --sidebar-foreground: var(--erp-sidebar-text);
+  --sidebar-primary: var(--erp-sidebar-active);
+  --sidebar-primary-foreground: var(--erp-sidebar-active-foreground);
+  --sidebar-accent: var(--erp-sidebar-card);
+  --sidebar-accent-foreground: var(--erp-sidebar-text);
+  --sidebar-border: var(--erp-sidebar-border);
+  --sidebar-ring: var(--erp-sidebar-active);
+}
+
+/* The existing theme switch toggles .dark on the document root. */
+:root.dark {
+  color-scheme: dark;
+  --erp-sidebar: #09142B;
+  --erp-sidebar-deep: #070F21;
+  --erp-sidebar-card: #182B4B;
+  --erp-sidebar-active: #416EFF;
+  --erp-sidebar-active-foreground: #FFFFFF;
+  --erp-sidebar-active-hover: #6284FF;
+  --erp-background: #0C1425;
+  --erp-background-secondary: #142039;
+  --erp-background-elevated: #142039;
+  --erp-workspace-gradient: linear-gradient(135deg, #0C1425 0%, #101B30 50%, #142039 100%);
+  --erp-header-background: #142039;
+  --erp-header-border: #2A3A58;
+  --erp-header-text: #EDF3FF;
+  --erp-header-muted: #A5B4D0;
+  --erp-header-icon: #C4D2EA;
+  --erp-card-background: #192641;
+  --erp-card-border: #2A3A58;
+  --erp-card-text: #EDF3FF;
+  --erp-card-muted: #A5B4D0;
+  --erp-card-shadow: 0 2px 5px rgba(0, 0, 0, .1), 0 8px 24px rgba(0, 0, 0, .13);
+  --erp-card-hover-shadow: 0 6px 16px rgba(0, 0, 0, .16), 0 14px 32px rgba(0, 0, 0, .2);
+  --erp-primary: #6284FF;
+  --erp-primary-hover: #7896FF;
+  --erp-primary-active: #416EFF;
+  --erp-primary-foreground: #000000;
+  --erp-revenue: #82A0FF;
+  --erp-revenue-light: #203760;
+  --erp-sales-light: #173D35;
+  --erp-expenses-light: #4A2939;
+  --erp-warning-light: #473922;
+  --erp-table-header: #202F4B;
+  --erp-table-row: #192641;
+  --erp-table-row-hover: #223350;
+  --erp-table-border: #2A3A58;
+  --erp-table-text: #DDE8FC;
+  --erp-status-success-bg: #173D35;
+  --erp-status-success-text: #7DE0A6;
+  --erp-status-warning-bg: #473922;
+  --erp-status-warning-text: #FFD184;
+  --erp-status-error-bg: #4A2939;
+  --erp-status-error-text: #FF9BAE;
+  --erp-status-info-bg: #203760;
+  --erp-status-info-text: #A6BEFF;
+  --erp-status-neutral-bg: #2A3A58;
+  --erp-status-neutral-text: #B7C6DF;
+  --erp-chart-blue: #82A0FF;
+  --erp-chart-cyan: #65DDE9;
+  --erp-chart-green: #7DE0A6;
+  --erp-chart-yellow: #FFD184;
+  --erp-chart-purple: #BDA4FA;
+  --erp-chart-red: #FF9BAE;
+  --erp-chart-grid: #2A3A58;
+  --erp-input-background: #142039;
+  --erp-input-border: #354765;
+  --erp-input-text: #EDF3FF;
+  --erp-input-placeholder: #A5B4D0;
+  --erp-input-focus: #82A0FF;
+  --erp-input-focus-ring: rgba(130, 160, 255, .2);
+  --erp-surface-divider: #2A3A58;
+}
+
+html, body, #root { min-height: 100%; }
+html { background: var(--erp-background); color: var(--erp-card-text); }
+body, .main-area { background: var(--erp-workspace-gradient); color: var(--erp-card-text); }
+
+/* The navigation and workspace own their scroll positions independently. */
+.app-shell { height: 100vh; height: 100dvh; min-height: 0; overflow: hidden; }
+.desktop-sidebar { height: 100%; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.sidebar-inner { height: auto; min-height: 100%; }
+.main-area { height: 100%; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+.topbar { flex: none; }
+.content { flex: 1; min-height: 0; width: 100%; margin: 0 auto; overflow-y: auto; overscroll-behavior: contain; }
+.mobile-sidebar { overscroll-behavior: contain; }
+
+.sidebar { background: var(--erp-sidebar); color: var(--erp-sidebar-text); scrollbar-width: none; }
+.sidebar::-webkit-scrollbar { display: none; }
+.sidebar-bottom { border-color: var(--erp-sidebar-border); }
+.brand-icon { background: var(--erp-primary); box-shadow: 0 8px 20px rgba(49, 95, 244, .22); }
+.brand strong span { color: var(--erp-sidebar-heading); }
+.brand small, .sidebar-footnote { color: var(--erp-sidebar-heading); }
+.company-switch { background: var(--erp-sidebar-card); border-color: var(--erp-sidebar-border); }
+.company-switch strong { color: var(--erp-sidebar-text); }
+.company-switch small, .company-switch > svg { color: var(--erp-sidebar-muted); }
+.company-avatar { background: var(--erp-revenue-light); color: var(--erp-card-text); }
+.nav-section p { color: var(--erp-sidebar-heading); }
+.nav-link { color: var(--erp-sidebar-muted); }
+.nav-link svg { color: var(--erp-sidebar-icon); }
+.nav-link:hover { background: var(--erp-sidebar-card); color: var(--erp-sidebar-text); }
+.nav-link.active { background: var(--erp-sidebar-active); color: var(--erp-sidebar-active-foreground); box-shadow: 0 3px 12px rgba(49, 95, 244, .18); }
+.nav-link.active:hover { background: var(--erp-sidebar-active-hover); }
+.nav-link.active svg { color: var(--erp-sidebar-active-foreground); }
+.soon-dot { background: var(--erp-primary); }
+
+.topbar { background: var(--erp-header-background); border-color: var(--erp-header-border); color: var(--erp-header-text); }
+.top-left, .profile-email { color: var(--erp-header-muted); }
+.profile-avatar { background: var(--erp-revenue-light); color: var(--erp-card-text); }
+.top-left strong { color: var(--erp-header-text); }
+.top-actions .button-ghost { color: var(--erp-header-icon); }
+.breadcrumb-slash { color: var(--erp-header-muted); }
+.top-divider { border-color: var(--erp-header-border); }
+.search-box { background: var(--erp-input-background); border-color: var(--erp-input-border); color: var(--erp-header-muted); }
+.search-box kbd { border-color: var(--erp-input-border); }
+
+.page-intro h1, .section-heading h3, .work-card-header h2,
+.work-form h3, .activity-heading, .readiness-card h4,
+.module-list strong, .empty-panel h2, .entity-list strong,
+.live-number { color: var(--erp-card-text); }
+.page-intro p, .section-heading p, .readiness-card p,
+.module-list small, .module-list > span, .empty-panel p,
+.entity-list small, .empty-copy, .pagination,
+.report-counts, .profile-email, .login-card p, .login-note,
+.loading-page, .card-bottom, .receipt-panel { color: var(--erp-card-muted); }
+.eyebrow, .work-card-header, .entity-list b, .report-counts strong { color: var(--erp-primary); }
+.tiny-label { color: var(--erp-card-muted); }
+.phase-badge { background: var(--erp-status-info-bg); border-color: var(--erp-card-border); color: var(--erp-status-info-text); }
+.phase-badge span { background: var(--erp-primary); }
+.phase-badge.muted { background: var(--erp-status-neutral-bg); border-color: var(--erp-card-border); color: var(--erp-status-neutral-text); }
+
+.work-card, .readiness-card, .module-list, .empty-panel,
+.report-filters, .login-card { background: var(--erp-card-background); border-color: var(--erp-card-border); color: var(--erp-card-text); box-shadow: var(--erp-card-shadow); }
+.readiness-card, .work-card { transition: box-shadow .2s ease, border-color .2s ease; }
+.readiness-card:hover, .work-card:hover { box-shadow: var(--erp-card-hover-shadow); }
+.module-list:last-of-type { border-bottom-color: var(--erp-card-border); }
+.work-card-header, .entity-list li, .work-form, .card-bottom,
+.receipt-panel { border-color: var(--erp-surface-divider); }
+.list-icon, .empty-icon { background: var(--erp-revenue-light); color: var(--erp-revenue); }
+.card-icon.blue { background: var(--erp-revenue-light); color: var(--erp-revenue); }
+.card-icon.purple { background: var(--erp-status-info-bg); color: var(--erp-chart-purple); }
+.card-icon.orange { background: var(--erp-warning-light); color: var(--erp-warning); }
+.kpi-sales .live-number, .kpi-sales .card-icon { color: var(--erp-status-success-text); }
+.kpi-expenses .live-number, .kpi-expenses .card-icon { color: var(--erp-status-error-text); }
+.kpi-warning .live-number, .kpi-warning .card-icon { color: var(--erp-status-warning-text); }
+.kpi-revenue .live-number, .kpi-revenue .card-icon { color: var(--erp-revenue); }
+.kpi-sales .card-icon { background: var(--erp-sales-light); }
+.kpi-expenses .card-icon { background: var(--erp-expenses-light); }
+.kpi-warning .card-icon { background: var(--erp-warning-light); }
+.kpi-revenue .card-icon { background: var(--erp-revenue-light); }
+
+.button-default, .login-logo { background: var(--erp-primary); color: var(--erp-primary-foreground); }
+.button-default:hover { background: var(--erp-primary-hover); }
+.button-default:active { background: var(--erp-primary-active); }
+.button-outline { background: var(--erp-card-background); border-color: var(--erp-input-border); color: var(--erp-card-text); }
+.button-outline:hover, .button-ghost:hover { background: var(--erp-background-secondary); color: var(--erp-primary); }
+.button-ghost { color: var(--erp-header-muted); }
+.button:focus-visible, a:focus-visible { outline: 2px solid var(--erp-input-focus); outline-offset: 2px; }
+.button:disabled { opacity: .55; cursor: not-allowed; }
+
+.login-page { background: var(--erp-workspace-gradient); }
+.login-logo { box-shadow: 0 8px 20px rgba(49, 95, 244, .16); }
+.login-card h1 { color: var(--erp-card-text); }
+.login-card label, .work-form label, .select-label,
+.report-filters label, .cart-controls label { color: var(--erp-card-text); }
+.login-card input, .work-form input, .work-form select,
+.select-label select, .inline-search input, .branch-select,
+.report-filters input, .cart-controls input { background: var(--erp-input-background); border-color: var(--erp-input-border); color: var(--erp-input-text); }
+.login-card input::placeholder, .work-form input::placeholder,
+.inline-search input::placeholder, .report-filters input::placeholder { color: var(--erp-input-placeholder); }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--erp-primary); }
+.login-card input:focus, .work-form input:focus, .work-form select:focus,
+.select-label select:focus, .inline-search input:focus,
+.branch-select:focus, .report-filters input:focus, .cart-controls input:focus {
+  border-color: var(--erp-input-focus);
+  box-shadow: 0 0 0 3px var(--erp-input-focus-ring);
+}
+.inline-search { border-color: var(--erp-input-border); color: var(--erp-input-placeholder); }
+.inline-search input:focus { box-shadow: none; }
+.form-error { color: var(--erp-status-error-text); }
+.form-alert { background: var(--erp-status-error-bg); border-color: var(--erp-card-border); color: var(--erp-status-error-text); }
+.form-success { background: var(--erp-status-success-bg); border-color: var(--erp-card-border); color: var(--erp-status-success-text); }
+
+table { color: var(--erp-table-text); }
+th { background: var(--erp-table-header); color: var(--erp-table-text); }
+td { background: var(--erp-table-row); color: var(--erp-table-text); }
+td, th { border-color: var(--erp-table-border); }
+tbody tr:hover td { background: var(--erp-table-row-hover); }
+.status-pill.up { background: var(--erp-status-success-bg); color: var(--erp-status-success-text); }
+.status-pill.down { background: var(--erp-status-error-bg); color: var(--erp-status-error-text); }
+.status-pill.pending { background: var(--erp-status-neutral-bg); color: var(--erp-status-neutral-text); }
+.report-counts strong { color: var(--erp-primary); }
+.chart-wrap .recharts-text { fill: var(--erp-card-muted); }
+.chart-wrap .recharts-tooltip-wrapper { color: var(--erp-card-text); }
+.chart-wrap .recharts-default-tooltip { background: var(--erp-card-background) !important; border-color: var(--erp-card-border) !important; }
+
+/* Preserve the dashboard art while bringing it into the same navy/blue palette. */
+.hero-panel { background: linear-gradient(110deg, var(--erp-sidebar-deep), var(--erp-sidebar-card), var(--erp-sidebar-active)); }
+.hero-kicker, .hero-link { color: var(--erp-sidebar-text); }
+.hero-copy p { color: var(--erp-sidebar-muted); }
+.orbit { border-color: var(--erp-sidebar-border); }
+.art-center { background: linear-gradient(140deg, var(--erp-primary-hover), var(--erp-primary-active)); }
+.art-chip { background: var(--erp-sidebar-card); border-color: var(--erp-sidebar-border); color: var(--erp-sidebar-text); }
+
+:root.dark .main-area, :root.dark body { background: var(--erp-workspace-gradient); }
+:root.dark .topbar, :root.dark .readiness-card, :root.dark .module-list,
+:root.dark .empty-panel, :root.dark .work-card, :root.dark .login-card,
+:root.dark .report-filters { background: var(--erp-card-background); border-color: var(--erp-card-border); }
+:root.dark .topbar { background: var(--erp-header-background); }
+:root.dark .work-card-header, :root.dark .entity-list li, :root.dark .work-form,
+:root.dark td, :root.dark th, :root.dark .card-bottom { border-color: var(--erp-surface-divider); }
+:root.dark .page-intro h1, :root.dark .section-heading h3,
+:root.dark .work-card-header h2, :root.dark .work-form h3,
+:root.dark .activity-heading, :root.dark .entity-list strong,
+:root.dark .readiness-card h4, :root.dark .module-list strong,
+:root.dark .top-left strong, :root.dark .empty-panel h2,
+:root.dark .live-number { color: var(--erp-card-text); }
+:root.dark .search-box { background: var(--erp-input-background); border-color: var(--erp-input-border); }
+:root.dark th { background: var(--erp-table-header); }
+:root.dark .work-form input, :root.dark .work-form select,
+:root.dark .select-label select, :root.dark .branch-select,
+:root.dark .inline-search input, :root.dark .login-card input {
+  background: var(--erp-input-background);
+  border-color: var(--erp-input-border);
+  color: var(--erp-input-text);
+}
+
+@media print {
+  body, .main-area { background: white; }
+  .work-card { background: white; color: black; }
+  .app-shell, .main-area { height: auto; overflow: visible; }
+  .content { overflow: visible; }
+}
+
+.theme-dialog {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: min(520px, 100vw);
+  max-width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-left: 1px solid var(--erp-card-border);
+  background: var(--erp-card-background);
+  color: var(--erp-card-text);
+  box-shadow: -14px 0 42px rgba(8, 20, 42, .2);
+}
+.theme-dialog::backdrop { background: rgba(6, 16, 35, .5); }
+.theme-dialog[open] { display: flex; flex-direction: column; }
+.theme-dialog-header, .theme-dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  flex: none;
+  border-bottom: 1px solid var(--erp-card-border);
+}
+.theme-dialog-header h2 { margin: 0 0 5px; font-size: 19px; color: var(--erp-card-text); }
+.theme-dialog-header p { margin: 0; font-size: 12px; color: var(--erp-card-muted); }
+.theme-dialog-body { overflow: auto; padding: 24px; flex: 1; }
+.theme-dialog-body section + section { margin-top: 28px; }
+.theme-dialog-body h3 { margin: 0 0 14px; font-size: 13px; color: var(--erp-card-text); }
+.theme-mode-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; padding: 4px; border-radius: 10px; background: var(--erp-background-secondary); }
+.theme-mode-group button { border: 1px solid transparent; border-radius: 7px; padding: 9px 8px; background: transparent; color: var(--erp-card-muted); font-size: 12px; font-weight: 650; cursor: pointer; }
+.theme-mode-group button.selected { background: var(--erp-card-background); border-color: var(--erp-card-border); color: var(--erp-primary); box-shadow: var(--erp-card-shadow); }
+.theme-mode-group button:hover:not(.selected) { color: var(--erp-card-text); }
+.theme-palette-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; }
+.theme-palette-card { min-width: 0; padding: 6px; border: 2px solid var(--erp-card-border); border-radius: 9px; background: var(--erp-card-background); color: var(--erp-card-text); text-align: left; cursor: pointer; transition: border-color .16s ease, box-shadow .16s ease; }
+.theme-palette-card:hover { border-color: var(--erp-primary); box-shadow: var(--erp-card-shadow); }
+.theme-palette-card.selected { border-color: var(--erp-primary); box-shadow: 0 0 0 2px var(--erp-input-focus-ring); }
+.theme-palette-swatches { display: flex; width: 100%; height: 30px; overflow: hidden; border-radius: 5px; }
+.theme-palette-swatches > span { flex: 1; }
+.theme-palette-label { display: flex; align-items: center; justify-content: space-between; gap: 3px; padding: 7px 2px 2px; font-size: 10px; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere; }
+.theme-palette-label svg { flex: none; color: var(--erp-primary); }
+.theme-dialog-actions { border-top: 1px solid var(--erp-card-border); border-bottom: 0; }
+.theme-mode-group button:focus-visible, .theme-palette-card:focus-visible { outline: 2px solid var(--erp-input-focus); outline-offset: 2px; }
+
+@media (max-width: 650px) {
+  .theme-palette-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 420px) {
+  .theme-palette-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .theme-dialog-header, .theme-dialog-actions { padding: 16px; }
+  .theme-dialog-body { padding: 18px 16px; }
+  .topbar { gap: 6px; }
+  .top-left .breadcrumb-root, .top-left .breadcrumb-slash, .top-left strong { display: none; }
+  .top-actions .branch-select { width: 88px; }
+  .top-actions .button-ghost { padding: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-palette-card { transition: none; }
+}

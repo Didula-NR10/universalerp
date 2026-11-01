@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: universal-erp
+  config:
+    import: optional:file:.env[.properties],optional:file:../.env[.properties]
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: ${DB_POOL_MAX_SIZE:5}
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+    url: ${MIGRATION_DB_URL:${DB_URL}}
+    user: ${MIGRATION_DB_USERNAME:${DB_USERNAME}}
+    password: ${MIGRATION_DB_PASSWORD:${DB_PASSWORD}}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+server:
+  error:
+    include-message: never
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+erp:
+  auth:
+    secret: ${AUTH_JWT_SECRET}
+    issuer: ${AUTH_JWT_ISSUER:universal-erp}
+    audience: ${AUTH_JWT_AUDIENCE:erp}
+  cors:
+    allowed-origin: ${CORS_ALLOWED_ORIGIN:http://localhost:5173}
