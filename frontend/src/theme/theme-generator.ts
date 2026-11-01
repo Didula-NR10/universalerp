@@ -38,7 +38,7 @@ export function readableText(background: string): string {
 
 export function ensureContrast(foreground: string, background: string, minimum = 4.5): string {
   if (contrast(foreground, background) >= minimum) return foreground
-  const toward = contrast('#FFFFFF', background) > contrast('#101827', background) ? '#FFFFFF' : '#101827'
+  const toward = contrast('#FFFFFF', background) > contrast('#000000', background) ? '#FFFFFF' : '#000000'
   for (let step = 1; step <= 20; step++) {
     const candidate = mix(foreground, toward, step / 20)
     if (contrast(candidate, background) >= minimum) return candidate
@@ -110,6 +110,17 @@ export function generateTheme(palette: ERPColorPalette, mode: ResolvedMode): The
   const secondary = light ? mix(accent, '#FFFFFF', .93) : mix(accent, surface, .78)
   const chart = chartColors(colors, surface, light)
   const chartBlue = chart[1]
+  const navbarStart = light ? mix(accent, '#FFFFFF', .9) : mix(darkest, '#1B2941', .62)
+  const navbarMiddle = light ? mix(accent, '#FFFFFF', .95) : mix(darkest, '#152039', .69)
+  const navbarEnd = light ? mix(accent, '#FFFFFF', .88) : mix(darkest, '#111B32', .72)
+  const navbarText = light ? ensureContrast(mix(darkest, '#171A21', .45), navbarStart) : '#EDF3FF'
+  const navbarMuted = light
+    ? ensureContrast(mix(navbarText, accent, .28), navbarStart)
+    : ensureContrast(mix(navbarStart, '#FFFFFF', .72), navbarStart)
+  const navbarIcon = light ? ensureContrast(accent, navbarStart) : ensureContrast(mix(accent, '#FFFFFF', .45), navbarStart)
+  const navbarControl = light ? '#FFFFFF' : mix(navbarMiddle, '#FFFFFF', .07)
+  const navbarBorder = light ? mix(accent, '#D1D7DF', .72) : mix(navbarStart, '#FFFFFF', .25)
+  const navbarControlBorder = light ? mix(accent, '#D1D7DF', .68) : mix(navbarControl, '#FFFFFF', .28)
 
   return {
     '--erp-sidebar': sidebar,
@@ -132,6 +143,22 @@ export function generateTheme(palette: ERPColorPalette, mode: ResolvedMode): The
     '--erp-header-text': foreground,
     '--erp-header-muted': muted,
     '--erp-header-icon': primary,
+    '--erp-navbar-bg-start': navbarStart,
+    '--erp-navbar-bg-middle': navbarMiddle,
+    '--erp-navbar-bg-end': navbarEnd,
+    '--erp-navbar-border': navbarBorder,
+    '--erp-navbar-text': navbarText,
+    '--erp-navbar-muted': navbarMuted,
+    '--erp-navbar-separator': navbarMuted,
+    '--erp-navbar-icon': navbarIcon,
+    '--erp-navbar-hover': light ? mix(accent, '#FFFFFF', .81) : mix(navbarStart, accent, .26),
+    '--erp-navbar-active-bg': light ? mix(accent, '#FFFFFF', .77) : mix(navbarStart, accent, .34),
+    '--erp-navbar-active-icon': ensureContrast(navbarIcon, light ? mix(accent, '#FFFFFF', .77) : mix(navbarStart, accent, .34)),
+    '--erp-navbar-control-bg': navbarControl,
+    '--erp-navbar-control-border': navbarControlBorder,
+    '--erp-navbar-control-hover-border': light ? mix(accent, '#A4AFBF', .55) : mix(navbarControlBorder, '#FFFFFF', .24),
+    '--erp-navbar-signout-hover': light ? mix(accent, '#FFFFFF', .88) : mix(navbarControl, accent, .2),
+    '--erp-navbar-focus-ring': `color-mix(in srgb, ${navbarIcon} 22%, transparent)`,
     '--erp-card-background': surface,
     '--erp-card-border': border,
     '--erp-card-text': foreground,

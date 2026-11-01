@@ -49,6 +49,10 @@ The foundation profile serves health and status only. The frontend shows its set
 
 Configure Supabase PostgreSQL and `AUTH_JWT_SECRET` in the root `.env` as in [setup](docs/development/setup.md). Start the backend from `backend` with `.\mvnw.cmd spring-boot:run`; it loads the root `.env` automatically. Run without the `foundation` profile and configure the frontend to call the local backend API. Flyway applies pending migrations at startup; V1-V13 are already applied to the approved ERP test project. The browser no longer uses Supabase Auth or a Supabase publishable key.
 
+## Deploy to Render
+
+For Render hosting, follow the [Render deployment guide](docs/development/render.md). It uses separate API and static frontend services from this repository.
+
 ## Verify
 
 ```powershell

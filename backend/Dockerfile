@@ -9,5 +9,6 @@ RUN useradd --system --uid 10001 erp
 WORKDIR /app
 COPY --from=build /build/target/backend-*.jar /app/erp.jar
 USER erp
-EXPOSE 8080
+ENV PORT=10000
+EXPOSE 10000
 ENTRYPOINT ["java","-jar","/app/erp.jar"]

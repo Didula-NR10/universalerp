@@ -1,6 +1,10 @@
 export type ApiProblem = { detail?: string; title?: string; code?: string }
 export class ApiError extends Error { constructor(readonly status: number, message: string) { super(message) } }
-export const apiUrl = (path: string) => `${(import.meta.env.VITE_API_BASE_URL || '/api').replace(/\/$/, '')}/v1${path}`
+export const apiUrl = (path: string) => {
+  const base = import.meta.env.VITE_API_BASE_URL
+    || (import.meta.env.VITE_API_ORIGIN ? `${import.meta.env.VITE_API_ORIGIN.replace(/\/$/, '')}/api` : '/api')
+  return `${base.replace(/\/$/, '')}/v1${path}`
+}
 
 export async function api<T>(path: string, token: string, init: RequestInit = {}): Promise<T> {
   const response = await fetch(apiUrl(path), {

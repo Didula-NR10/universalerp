@@ -1,6 +1,6 @@
 # Deployment prerequisites
 
-The target is Supabase PostgreSQL, a hosted Spring Boot API and a hosted React frontend. Authentication is owned by the ERP API; do not configure Supabase Auth or a frontend publishable key. `backend/Dockerfile` and `frontend/Dockerfile` are deployment templates, not yet built locally because Docker is unavailable. Use `GET /actuator/health` for the API health check.
+The target is Supabase PostgreSQL, a hosted Spring Boot API and a hosted React frontend. Authentication is owned by the ERP API; do not configure Supabase Auth or a frontend publishable key. The root [Render Blueprint](../../render.yaml) deploys the backend Docker service and a frontend static site separately; follow the [Render guide](render.md). `backend/Dockerfile` and `frontend/Dockerfile` have not been built locally because Docker is unavailable. Use `GET /actuator/health` for the API health check.
 
 Configure HTTPS, `CORS_ALLOWED_ORIGIN`, `AUTH_JWT_SECRET` and database credentials through a managed secret store. Keep the signing secret stable across API instances; rotating it invalidates current sessions. The API uses HikariCP with `DB_POOL_MAX_SIZE` defaulting to 5. Set `MIGRATION_DB_URL`, `MIGRATION_DB_USERNAME` and `MIGRATION_DB_PASSWORD` for a separate migration account; otherwise Flyway uses the runtime database connection. Restrict runtime UPDATE/DELETE privileges on audit and stock movement history.
 

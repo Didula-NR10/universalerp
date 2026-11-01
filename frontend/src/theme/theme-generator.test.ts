@@ -27,6 +27,11 @@ describe('theme generation', () => {
         ['--erp-sidebar-active-foreground', '--erp-sidebar-active'],
         ['--erp-primary-foreground', '--erp-primary'],
         ['--erp-status-info-text', '--erp-status-info-bg'],
+        ['--erp-navbar-text', '--erp-navbar-bg-start'],
+        ['--erp-navbar-muted', '--erp-navbar-bg-start'],
+        ['--erp-navbar-icon', '--erp-navbar-bg-start'],
+        ['--erp-navbar-text', '--erp-navbar-control-bg'],
+        ['--erp-navbar-active-icon', '--erp-navbar-active-bg'],
       ]) expect(contrast(theme[foreground], theme[background]), `${palette.id} ${mode} ${foreground}`).toBeGreaterThanOrEqual(4.5)
     }
   })
@@ -60,7 +65,7 @@ describe('theme generation', () => {
   it('changes the sidebar, primary button, chart, and workspace between different palettes', () => {
     const first = generateTheme(palettes[0], 'light')
     const second = generateTheme(palettes[1], 'light')
-    for (const token of ['--erp-sidebar', '--erp-sidebar-active', '--erp-primary', '--erp-chart-blue', '--erp-background']) {
+    for (const token of ['--erp-sidebar', '--erp-sidebar-active', '--erp-primary', '--erp-chart-blue', '--erp-background', '--erp-navbar-bg-start', '--erp-navbar-border', '--erp-navbar-icon', '--erp-navbar-control-border']) {
       expect(first[token]).not.toEqual(second[token])
     }
   })

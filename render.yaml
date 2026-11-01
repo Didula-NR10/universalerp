@@ -1,0 +1,57 @@
+services:
+  # Trial configuration. Upgrade the API plan before using the ERP for real operations.
+  - type: web
+    name: universal-erp-api
+    runtime: docker
+    plan: free
+    region: frankfurt
+    rootDir: backend
+    dockerfilePath: Dockerfile
+    dockerContext: .
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: AUTH_JWT_SECRET
+        generateValue: true
+      - key: CORS_ALLOWED_ORIGIN
+        fromService:
+          name: universal-erp-web
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: DB_POOL_MAX_SIZE
+        value: "3"
+      - key: JAVA_TOOL_OPTIONS
+        value: -XX:MaxRAMPercentage=60.0
+
+  - type: web
+    name: universal-erp-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: VITE_API_ORIGIN
+        fromService:
+          name: universal-erp-api
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL

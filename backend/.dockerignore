@@ -1,4 +1,4 @@
-target
-*.log
+target/
 .env
-.env.local
+*.log
+.git/

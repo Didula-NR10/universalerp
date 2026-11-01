@@ -34,7 +34,7 @@ export function ThemeCustomizer() {
   }, [open])
 
   return <>
-    <Button variant="ghost" aria-label="Customize Theme" title="Customize Theme" aria-haspopup="dialog" aria-expanded={open}
+    <Button variant="ghost" className="theme-trigger" aria-label="Customize Theme" title="Customize Theme" aria-haspopup="dialog" aria-expanded={open}
       onClick={() => setOpen(true)}><Palette size={19}/></Button>
     <dialog ref={dialogRef} className="theme-dialog" aria-labelledby="theme-dialog-title" onClose={() => setOpen(false)}>
       <div className="theme-dialog-header"><div><h2 id="theme-dialog-title">Appearance &amp; Themes</h2><p>Personalize your ERP workspace.</p></div>

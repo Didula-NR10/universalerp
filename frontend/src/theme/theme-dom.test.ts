@@ -17,6 +17,8 @@ describe('CSS variable application', () => {
     expect(values.get('--erp-primary')).toBe(first['--erp-primary'])
     expect(values.get('--erp-background')).toBe(first['--erp-background'])
     expect(values.get('--erp-chart-blue')).toBe(first['--erp-chart-blue'])
+    expect(values.get('--erp-navbar-bg-start')).toBe(first['--erp-navbar-bg-start'])
+    expect(values.get('--erp-navbar-control-border')).toBe(first['--erp-navbar-control-border'])
 
     cleanFirst()
     const second = generateTheme(erpPalettes[2], 'dark')

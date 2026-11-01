@@ -8,6 +8,12 @@ it('uses the configured cloud API origin', () => {
   expect(apiUrl('/branches')).toBe('https://erp-api.example.com/api/v1/branches')
 })
 
+it('uses the Render backend URL when no explicit API base is set', () => {
+  vi.stubEnv('VITE_API_BASE_URL', '')
+  vi.stubEnv('VITE_API_ORIGIN', 'https://erp-api.onrender.com/')
+  expect(apiUrl('/auth/login')).toBe('https://erp-api.onrender.com/api/v1/auth/login')
+})
+
 it('sends the bearer token to the backend and returns JSON', async () => {
   const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ id: 'one' }), { status: 200 }))
   vi.stubGlobal('fetch', fetchMock)
